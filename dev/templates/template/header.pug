@@ -1,2 +1,37 @@
 header.head
 	.section
+		.row.head-row
+			.head-left
+				.head-name
+					span.head-name_text Морган Старк
+				.head-role
+					span.head-role_text Администратор
+			.head-right
+				.row.head-right-row
+					.head-right-item
+						.head-text-item
+							svg.head-icon-svg._docs
+								use(xlink:href="/img/sprite.svg#TABLE-LIST")
+							span Документация
+						.head-text-item
+							svg.head-icon-svg._help
+								use(xlink:href="/img/sprite.svg#HELP")
+							span.head-text-item_content Помощь по разделу
+					.head-right-item
+						.head-icon
+							svg.head-icon-svg._bell
+								use(xlink:href="/img/sprite.svg#N-BELL")
+							.head-icon-reminder
+						.head-icon
+							+img('head-quest.svg')
+					.head-right-item
+						.head-profile
+							+img('profile.png')
+							.head-notifications
+								+img('head-notifications.svg')
+					.head-right-item
+						.head-langs
+							button.head-lang
+								span.head-lang_text EN
+							button.head-lang.-active
+								span.head-lang_text RU

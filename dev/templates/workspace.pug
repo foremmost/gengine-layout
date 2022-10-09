@@ -1,26 +1,9 @@
-extends template/main
+extends template/inner
 append vars
 	-
 		page_title = 'Workspace'
 block content
 	main
-		section.login
+		section.workspace
 			.section
 				.row
-					.login-left
-						.login-logo
-							+img("login_logo.png")
-					.login-right
-						.login-langs
-							button.login-lang
-								span.login-lang_text EN
-							button.login-lang.-active
-								span.login-lang_text RU
-						form()
-							.login-form-row
-								.login-inpt
-									label(for='login').login-inpt-title Логин
-									input(type='email' id='login').login-inpt-value
-								button.login-btn
-									svg.login-btn-svg
-										use(xlink:href="/img/sprite.svg#ARROW")
