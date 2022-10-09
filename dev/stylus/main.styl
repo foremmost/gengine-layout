@@ -1,0 +1,85 @@
+@import reset
+@import mixins
+@import vars
+@import groups
+
+font_inc('Geometria-Regular', 'Geometria-Regular.woff2')
+font_inc('Geometria-Bold', 'Geometria-Bold.woff2')
+
+
+.row
+  wh 100%
+  df({
+    df:'.row'
+  })
+
+
+body
+  font 14px "Geometria-Regular"
+  background-color RGB( var(--gray) )
+
+// Login page
+.login
+  &>.section
+    posr()
+    wh calc( (1308 / 1360) * 100%) calc( 100vh - calc(var(--main-gap) * 2 ) )
+    m var(--main-gap) auto
+    ovh()
+    br 32px
+    box-shadow -5px -5px 10px rgba(255, 255, 255, 0.5), 5px 5px 10px rgba(170, 170, 204, 0.25), 10px 10px 20px rgba(170, 170, 204, 0.5), -10px -10px 20px #FFF
+  &-left,&-right
+    w 50%
+    fd()
+    df({
+      df:'.login-part'
+      jus:'center'
+    })
+  &-left
+    background-color RGB( var(--orange))
+  &-logo
+    m(0 calc(var(--main-gap) * 2 ) 0 auto)
+  &-right
+    pl(calc(var(--main-gap) * 2 ))
+    background-color RGB( var(--light-gray))
+  &-form-row
+    posr()
+    mw(313px)
+  &-inpt
+    &-title
+      db()
+      font 13px 'Geometria-Bold'
+      lih(28px)
+    &-value
+      wh 100% 42px
+      fz(13px)
+      pl(var(--inner-gap))
+      bdb(1px solid RGB( var(--purple)))
+      bgc transparent
+      &.-process
+        bdb(1px solid RGBA( var(--orange),.8))
+      &.-success
+        bdb(1px solid RGBA( var(--green),.8))
+      &.-error
+        bdb(1px solid RGBA( var(--red)),.8)
+  &-langs,&-btn
+    posa()
+  &-langs
+    t var(--main-gap)
+    r var(--main-gap)
+  &-lang
+    &.-active
+      ff('Geometria-Bold')
+      lih(18px)
+      ttu()
+      text-decoration: underline
+  &-btn
+    wh 12px 24px
+    t 33px
+    r var(--inner-gap)
+    &-svg
+      wh 100%
+      m 0 auto
+      fill none
+      stroke RGB( var(--purple))
+
+// Login page end
