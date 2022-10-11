@@ -1,0 +1,67 @@
+extends template/inner
+append vars
+	-
+		page_title = 'Workspace'
+block content
+	main.content
+		section.category
+			.section
+				.content-header
+					h2.title
+						| Категории
+					.content-form
+						.binpt
+							label.binpt-title(for='search')
+							input(type='text' id='search' placeholder='Поиск категории').binpt-value
+						button.btn.btn-more
+							+img('more.svg')
+					.content-action
+						button.btn.btn-add
+							span.btn-text Добавить категорию
+						button.btn.btn-settings
+							span.btn-text Настройки
+						button.btn.btn-trash
+							span.btn-text Корзина
+							span#btn-trash (2)
+					.content-inner
+						.content-section
+							h3.content-title Список категорий
+							ul.category-list
+								li.category-list_item
+									.category-list_item
+										button Контент
+										span 4
+									ul.category-sublist
+						.content-section
+							h3.content-title Управление категорией
+							form.category-form
+								.block
+									h6.block-title Изображение
+									label(for='cimage')
+									input(id='cimage' type='file' accept='image/*')
+								.inpt
+									label.inpt-title(for='ctitle') Заголовок
+									input(type='text' id='ctitle').inpt-value
+								.text
+									label.text-title(for='cdesc') Описание
+									textarea(id='cdesc').text-value Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								.select
+									label.select-title(for='cparent') Родитель
+									select(id='cparent')
+										option(value='1') Контент
+										option(value='2') Контент
+										option(value='3') Контент
+										option(value='4') Контент
+						.content-section
+							.row
+								h3.content-title Характеристики
+								button.btn.btn-char
+									span.btn-text Добавить характеристику
+							.category-char
+								.select
+									label.select-title(for='ctype') Тип
+									select(id='ctype')
+										option(value='1') Контент
+										option(value='2') Контент
+										option(value='3') Контент
+										option(value='4') Контент
