@@ -19,7 +19,90 @@ body
   color RGB( var(--black) )
   background-color RGB( var(--gray) )
 
+::-webkit-scrollbar
+  wh(5px)
 
+::-webkit-scrollbar-track-piece
+  br(12px)
+  bgc(#eee)
+  box-shadow inset -1px -1px 1px RGBA(255, 255, 255, 0.7), inset 1px 1px 2px RGBA(174, 174, 192, 0.2)
+
+::-webkit-scrollbar-thumb
+  bgc(RGBA(247, 145, 65, 0.8))
+  br(12px)
+  height 50px
+.title
+  font 20px "Geometria-Bold"
+  posr()
+  lih(28px)
+  color RGB( var(--black) )
+  &:after
+    af('')
+    wh(25px,2px)
+    bgc RGB(var(--orange))
+
+.binpt
+  &-value
+    br(10px)
+    bgc(RGBA(var(--light-pink),.2))
+    wh(440px,34px)
+    pl(var(--inner-gap))
+    box-shadow: inset -1px -1px 1px rgba(255, 255, 255, 0.7), inset 1px 1px 2px rgba(221, 221, 221, 0.2)
+  &-search
+    bg(RGBA(var(--light-pink),.2) url('../img/search_inpt.svg') no-repeat calc(100% - var(--inner-gap)) center)
+.btn
+  &-more
+    ml(var(--inner-gap))
+    svg
+      wh 40px 15px
+      stroke RGBA(var(--light-pink),.2)
+      fill RGBA(var(--light-pink),.2)
+  &-link
+    color RGB(var(--purple))
+  &-action
+    bgc(RGB(var(--light-gray)))
+    br(6px)
+    df({
+      df:'.btn-action'
+      ali:'center'
+      jus:'center'
+    })
+    wh 32px
+    box-shadow 1px 1px 2px rgba(170, 170, 204, 0.5), -1px -1px 2px #FFF
+    svg,img
+      wh 12px
+      stroke RGB(var(--black))
+  &-char
+    ml(auto)
+.inpt,.text
+  &-value
+    w(100%)
+    db()
+    bdb(1px solid RGB(var(--blue)))
+    color RGBA(var(--black),.6)
+    pl(var(--inner-gap))
+    pr(calc(var(--inner-gap)* 3))
+    bg(url('../img/pencil.svg') no-repeat calc(100% - var(--inner-gap)) center)
+    lih(28px)
+    fz(13px)
+    mt( calc(var(--inner-gap) / 2) )
+.text
+  &-value
+    height 122px
+    resize none
+    bgp(right var(--inner-gap))
+.inpt
+  &-value
+    height 34px
+.select
+  select
+    db()
+    bgc(RGB(var(--light-gray)))
+    br(4px)
+    bd(1px solid #E5E5E5)
+    wh(220px,34px)
+    p(0 var(--inner-gap))
+    mt( calc(var(--inner-gap) / 2))
 // Login page
 .login
   &>.section
@@ -172,10 +255,87 @@ body
 //header
 
 .content
+  ovh()
   bgc RGB(var(--gray))
   p var(--innner-gap)
   box-shadow 1px 1px 2px rgba(170, 170, 204, 0.5), -1px -1px 2px #FFF
   height calc(100vh - 156px - (2 * var(--inner-gap)))
-  &-inner
+  &-body
+    m var(--inner-gap)
+    bgc(#F7F9FF)
     br 4px
+    box-shadow: 1px 1px 2px rgba(170, 170, 204, .5), -1px -1px 2px #FFF
+  &-section
+    overflow-y auto
+    height 100%
+    bgc RGB( var(--light-gray))
     box-shadow: 0px 0px 4px rgba(0, 0, 0, .12)
+    &:first-child
+      br(4px 0px 0px 4px)
+    &:last-child
+      br(0px 4px 4px 0px)
+    p(calc(var(--inner-gap) * 2 ))
+  &-header,&-inner
+   p(calc(var(--inner-gap)*2))
+  &-header
+    df({
+      ali:'center'
+    })
+    pb 0
+  &-inner
+    wh 100% calc(100vh - 230px - (2 * var(--inner-gap)))
+    &>.row
+      height 100%
+  &-title
+    font 12px 'Geometria-Bold'
+    ttu()
+    color RGB( var(--black),.4)
+  &-action
+    df({
+      df:'.content-action'
+      ali:'center'
+    })
+    column-gap calc(var(--inner-gap) * 3)
+    ml(auto)
+
+
+// Category
+.category
+  &-section
+    overflow-y: auto
+    &-first
+      w(298 / 1295 * 100%)
+    &-second
+      w(344 / 1295 * 100%)
+    &-third
+      w(663 / 1295 * 100%)
+    &-four
+      w(54px)
+      p(var(--inner-gap))
+  &-header
+    .content-form
+      ml(calc(var(--inner-gap) * 4 ))
+  &-form
+    .inpt,.block,.select,.text
+      mt( calc(var(--inner-gap)*2) )
+  &-char
+    df({
+      df:'.category-char'
+      ali:'center'
+    })
+    mt(var(--inner-gap))
+    flex-wrap wrap
+    p(var(--inner-gap))
+    column-gap calc( 20 / 603 * 100%)
+    &_name,&_type
+      w( 220 / 603 * 100%)
+    &_type select
+      w(100%)
+    &_sort
+      w( 71 / 603 * 100%)
+    .text
+      mt(calc(var(--inner-gap) * 2))
+      w(100%)
+      textarea
+        height 34px
+// Category end
