@@ -1,0 +1,63 @@
+extends template/inner
+append vars
+	-
+		page_title = 'Consultant'
+block content
+	main.content
+		section.consultant
+		.section.content-body
+			.content-header.row.category-header
+				h2.title
+					| Консультант
+			.content-inner
+				.content-section
+					ul.consultant-list
+						li.consultant-list_item
+							.consultant-list_content
+								.consultant-list_img
+									+img('consultant.jpg')
+								.consultant-list_body
+									.consultant-list_title
+										| Андрей Навальный
+									.consultant-list_text
+										| Пиздец нахой блядь, ты ражаишь или нет?
+				.content-section
+					.consultant-section-header
+						.consultant-section-header_user
+							.consultant-section-header_img
+								+img('consultant.jpg')
+							.consultant-section-header_body
+								.consultant-section-header_title
+									| Андрей Навальный
+								.consultant-section-header_recent
+									| Недавно в сети
+					.consultant-section-body
+						.consultant-messages
+							.consultant-msg.right
+								.consultant-msg_time
+									| 12:00
+								.consultant-msg_body
+									| Привет
+							.consultant-msg.left
+								.consultant-msg_time
+									| 12:00
+								.consultant-msg_body
+									| Привет
+							.consultant-msg.right
+								.consultant-msg_time
+									| 12:00
+								.consultant-msg_body
+									| Ражаишь?
+							.consultant-msg.right
+								.consultant-msg_time
+									| 12:00
+								.consultant-msg_body
+									| Пиздец нахой блядь, ты ражаишь или нет?
+						.consultant-form
+							.consultant-form_body
+								textarea.consultant-form_textarea
+									| Напишите сообщение
+							.consultant-form_footer
+								.consultant-form_btn
+									| Отправить
+
