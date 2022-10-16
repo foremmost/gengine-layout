@@ -260,14 +260,18 @@ body
   p var(--innner-gap)
   box-shadow 1px 1px 2px rgba(170, 170, 204, 0.5), -1px -1px 2px #FFF
   height calc(100vh - 156px - (2 * var(--inner-gap)))
+  &-scrolled
+    m(20px 0)
+    pt(0)
+    pb(var(--inner-gap))
+    overflow-y auto
+    height calc(100% - 40px)
   &-body
     m var(--inner-gap)
     bgc(#F7F9FF)
     br 4px
     box-shadow: 1px 1px 2px rgba(170, 170, 204, .5), -1px -1px 2px #FFF
   &-section
-    overflow-y auto
-    height 100%
     bgc RGB( var(--light-gray))
     box-shadow: 0px 0px 4px rgba(0, 0, 0, .12)
     &:first-child
@@ -302,13 +306,12 @@ body
 // Category
 .category
   &-section
-    overflow-y: auto
     &-first
-      w(298 / 1295 * 100%)
+      w(295 / 1295 * 100%)
     &-second
-      w(344 / 1295 * 100%)
+      w(335 / 1295 * 100%)
     &-third
-      w(663 / 1295 * 100%)
+      w(715 / 1295 * 100%)
     &-four
       w(54px)
       p(var(--inner-gap))
@@ -316,16 +319,21 @@ body
     .content-form
       ml(calc(var(--inner-gap) * 4 ))
   &-form
+    pr(var(--inner-gap))
     .inpt,.block,.select,.text
       mt( calc(var(--inner-gap)*2) )
   &-char
     df({
       df:'.category-char'
-      ali:'center'
+      ali:'flex-end'
     })
     mt(var(--inner-gap))
-    flex-wrap wrap
     p(var(--inner-gap))
+    bgc(var(--light-gray))
+    bdrs(0px 4px 4px 0px)
+    mr(var(--inner-gap))
+    box-shadow: 1px 1px 2px rgba(170, 170, 204, 0.5), -1px -1px 2px #FFF
+    flex-wrap wrap
     column-gap calc( 20 / 603 * 100%)
     &_name,&_type
       w( 220 / 603 * 100%)
@@ -338,4 +346,73 @@ body
       w(100%)
       textarea
         height 34px
+  &-list
+    mt(calc(var(--inner-gap)*2))
+    &_item
+      mb(calc(var(--inner-gap)))
+      &.open
+        mb(calc(var(--inner-gap)*2))
+        .category-sublist
+          opacity 1
+          visibility visible
+          max-height 300px
+        .category-list_icon
+          transform rotate(90deg)
+        .category-list_content
+          bdc transparent
+    &_content
+      df({
+        df:'.category-list-content'
+        ali:'center'
+      })
+      bdrs(4px)
+      bd(1px solid RGB( var(--light-gray2)))
+      p(var(--inner-gap))
+    &_icon
+      wh(10px,5px)
+      ml(auto)
+    &_cnt
+      ml(calc(var(--inner-gap)/2))
+  &-sublist
+    posr()
+    pl(calc(var(--inner-gap)*1.4))
+    opacity 0
+    visibility hidden
+    max-height 0
+    &:before
+        af()
+        posa()
+        wh 1px 100%
+        bgc RGB( var(--light-gray2))
+        t 0
+        l 14px
+    &_item
+      df({
+        df:'.category-sublist-item'
+        ali:'center'
+      })
+      mb(var(--inner-gap))
+      &:before
+        af()
+        wh(10px,6px)
+        bdrs(0 0px 0 5px)
+        bdl(1px solid RGB( var(--light-gray2)))
+        bdb(1px solid RGB( var(--light-gray2)))
+        transform translateY(8px)
+    &_content
+      pl(calc(var(--inner-gap)/2))
+      transform translateY(10px)
+      button
+        color RGB( var(--blue))
+  &-image
+    &_title
+      bdrs(6px)
+      tac()
+      font 12px 'Geometria-Bold'
+      color RGB( var(--blue))
+      bgc(RGBA(var(--light-pink),.2))
+      p(var(--inner-gap) 0)
+      mt(calc(var(--inner-gap)/2))
+    &_file
+      dn()
 // Category end

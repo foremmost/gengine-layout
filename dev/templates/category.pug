@@ -31,17 +31,39 @@ block content
 							h3.content-title Список категорий
 							ul.category-list
 								li.category-list_item
-									.category-list_item
+									.category-list_content
 										button Контент
-										span 4
+										span.category-list_cnt 4
+										svg.category-list_icon
+											use(xlink:href="/img/sprite.svg#LIST-ARROW")
+								li.category-list_item.open
+									.category-list_content
+										button Статьи
+										span.category-list_cnt 6
+										svg.category-list_icon
+											use(xlink:href="/img/sprite.svg#LIST-ARROW")
 									ul.category-sublist
+										li.category-sublist_item
+											.category-sublist_content
+												button Статьи
+										li.category-sublist_item
+											.category-sublist_content
+												button Статьи
+								li.category-list_item
+									.category-list_content
+										button Контент
+										span.category-list_cnt 4
+										svg.category-list_icon
+											use(xlink:href="/img/sprite.svg#LIST-ARROW")
 						.content-section.category-section-second
 							h3.content-title Управление категорией
-							form.category-form
+							form.category-form.content-scrolled
 								.block
 									h6.block-title Изображение
-									label(for='cimage')
-									input(id='cimage' type='file' accept='image/*')
+									label(for='cimage').category-image
+										h5.category-image_title
+											| Загрузите изображение
+										input(id='cimage' type='file' accept='image/*').category-image_file
 								.inpt
 									label.inpt-title(for='ctitle') Заголовок
 									input(type='text' id='ctitle').inpt-value
@@ -66,27 +88,28 @@ block content
 								h3.content-title Характеристики
 								button.btn-link.btn-char
 									span.btn-text Добавить характеристику
-							-for(let i=0;i < 10;i++)
-								.category-char
-									.select.category-char_type
-										label.select-title(for='ctype') Тип
-										select(id='ctype')
-											option(value='1') Контент
-											option(value='2') Контент
-											option(value='3') Контент
-											option(value='4') Контент
-									.inpt.category-char_name
-										label.inpt-title(for='charname') Название
-										input(type='text' id='charname' placeholder='Введите название').inpt-value
-									.inpt.category-char_sort
-										label.inpt-title(for='charsort') Порядок
-										input(type='number' id='charsort').inpt-value
-									.btn.btn-action
-										svg.btn-icon-svg
-											use(xlink:href="/img/sprite.svg#TRASH")
-									.text
-										label.text-title(for='chardesc') Описание
-										textarea(id='chardesc').text-value
+							.content-scrolled
+								-for(let i=0;i < 10;i++)
+									.category-char
+										.select.category-char_type
+											label.select-title(for='ctype') Тип
+											select(id='ctype')
+												option(value='1') Контент
+												option(value='2') Контент
+												option(value='3') Контент
+												option(value='4') Контент
+										.inpt.category-char_name
+											label.inpt-title(for='charname') Название
+											input(type='text' id='charname' placeholder='Введите название').inpt-value
+										.inpt.category-char_sort
+											label.inpt-title(for='charsort') Порядок
+											input(type='number' id='charsort').inpt-value
+										.btn.btn-action
+											svg.btn-icon-svg
+												use(xlink:href="/img/sprite.svg#TRASH")
+										.text
+											label.text-title(for='chardesc') Описание
+											textarea(id='chardesc').text-value
 						.content-section.category-section-four
 							.btn.btn-action
 								+img('list.svg')
