@@ -9,55 +9,116 @@ block content
 			.content-header.row.category-header
 				h2.title
 					| Консультант
-			.content-inner
-				.content-section
+			.content-inner.row
+				.content-section.consultant-aside
 					ul.consultant-list
-						li.consultant-list_item
-							.consultant-list_content
-								.consultant-list_img
-									+img('consultant.jpg')
-								.consultant-list_body
-									.consultant-list_title
-										| Андрей Навальный
-									.consultant-list_text
-										| Пиздец нахой блядь, ты ражаишь или нет?
-				.content-section
-					.consultant-section-header
-						.consultant-section-header_user
-							.consultant-section-header_img
+						-for(let i=0;i<10;i++)
+							li.consultant-list_item
+								.consultant-list_content
+									.consultant-list_img
+										+img('consultant.jpg')
+									.consultant-list_body
+										.consultant-list_title
+											| Андрей Навальный
+										.consultant-list_text
+											| Пиздец нахой блядь, ты ражаишь или нет?
+										.consultant-list_date
+											| 11:59
+				.content-section.consultant-body
+					.consultant-body-header
+						.consultant-body-header_user
+							.consultant-body-header_img
 								+img('consultant.jpg')
-							.consultant-section-header_body
-								.consultant-section-header_title
+							.consultant-body-header_body
+								.consultant-body-header_title
 									| Андрей Навальный
-								.consultant-section-header_recent
-									| Недавно в сети
-					.consultant-section-body
+								.consultant-body-header_recent
+									| был недавно
+							.consultant-body-header_action
+								button.btn.btn-more
+									svg.btn-icon-svg._dot
+										use(xlink:href="/img/sprite.svg#T-DOT1")
+					.consultant-body-inner
 						.consultant-messages
-							.consultant-msg.right
+							.consultant-msg.consultant-msg_right
 								.consultant-msg_time
 									| 12:00
 								.consultant-msg_body
 									| Привет
 							.consultant-msg.left
-								.consultant-msg_time
-									| 12:00
 								.consultant-msg_body
 									| Привет
-							.consultant-msg.right
+								.consultant-msg_time
+									| 12:00
+							.consultant-msg.consultant-msg_right
 								.consultant-msg_time
 									| 12:00
 								.consultant-msg_body
 									| Ражаишь?
-							.consultant-msg.right
+							.consultant-msg.consultant-msg_right
 								.consultant-msg_time
 									| 12:00
 								.consultant-msg_body
 									| Пиздец нахой блядь, ты ражаишь или нет?
 						.consultant-form
 							.consultant-form_body
-								textarea.consultant-form_textarea
-									| Напишите сообщение
-							.consultant-form_footer
-								.consultant-form_btn
-									| Отправить
-
+								button.consultant-form_smiles
+									+img('smile.svg')
+								textarea.consultant-form_textarea(placeholder="Напишите сообщение")
+								button.consultant-form_btn.consultant-form_file
+									+img('file.svg')
+								button.consultant-form_btn.consultant-form_send
+									+img('send.svg')
+					.consultant-body-action
+						.consultant-profile
+							.consultant-profile_action
+								button.btn.btn-close.consultant-profile_close
+									svg.btn-icon-svg._close
+										use(xlink:href="/img/sprite.svg#CLOSE")
+							.consultant-profile_img
+								+img('rus.jpg')
+							.consultant-profile_body
+								h3.content-title Пользователь
+								ul.consultant-profile-list
+									li.consultant-profile-item
+										strong.consultant-profile-left
+											| Руслан Секербаев
+										span.consultant-profile-right
+											| u-10
+									li.consultant-profile-item
+										strong.consultant-profile-left
+											| E-mail
+										span.consultant-profile-right
+											| cekip@mail.ru
+									li.consultant-profile-item
+										strong.consultant-profile-left
+											| Телефон
+										span.consultant-profile-right
+											| +7 777 777 77 77
+									li.consultant-profile-item
+										strong.consultant-profile-left
+											| Роль
+										span.consultant-profile-right
+											| Администратор
+									li.consultant-profile-item
+										strong.consultant-profile-left
+											| Команда
+										span.consultant-profile-right
+											| Менеджеры
+								h3.content-title Информация
+								ul.consultant-profile-list
+									li.consultant-profile-item
+										strong.consultant-profile-left
+											| Дата добавления
+										span.consultant-profile-right
+											| 2021/08/25 15:56:11
+									li.consultant-profile-item
+										strong.consultant-profile-left
+											| Добавил
+										span.consultant-profile-right
+											|	Андрей Карась
+									li.consultant-profile-item
+										strong.consultant-profile-left
+											| Последняя активность
+										span.consultant-profile-right
+											|	2021/08/25 15:56:11

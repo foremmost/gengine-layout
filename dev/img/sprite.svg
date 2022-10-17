@@ -189,11 +189,11 @@
     </symbol>
     <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 6" id="T-DOT1">
         <path d="M9.63619 4.82731C10.6452 4.82731 11.4632 4.00934 11.4632 3.00033C11.4632 1.99131 10.6452 1.17334 9.63619 1.17334C8.62717 1.17334 7.8092 1.99131 7.8092 3.00033C7.8092 4.00934 8.62717 4.82731 9.63619 4.82731Z"
-               stroke-width="1.2" stroke-miterlimit="10"></path>
+           fill="#D3D9F9"    stroke-width="1.2" stroke-miterlimit="10"></path>
         <path d="M2.46236 4.82731C3.47138 4.82731 4.28935 4.00934 4.28935 3.00033C4.28935 1.99131 3.47138 1.17334 2.46236 1.17334C1.45335 1.17334 0.635376 1.99131 0.635376 3.00033C0.635376 4.00934 1.45335 4.82731 2.46236 4.82731Z"
-               stroke-width="1.2" stroke-miterlimit="10"></path>
+              fill="#D3D9F9"   stroke-width="1.2" stroke-miterlimit="10"></path>
         <path d="M16.8081 4.82731C17.8171 4.82731 18.6351 4.00934 18.6351 3.00033C18.6351 1.99131 17.8171 1.17334 16.8081 1.17334C15.799 1.17334 14.9811 1.99131 14.9811 3.00033C14.9811 4.00934 15.799 4.82731 16.8081 4.82731Z"
-              stroke-width="1.2" stroke-miterlimit="10"></path>
+              fill="#D3D9F9"   stroke-width="1.2" stroke-miterlimit="10"></path>
     </symbol>
     <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 20" id="T-DOT2">
         <ellipse cx="2.30179" cy="1.66705" rx="1.66669" ry="1.66672" transform="rotate(-90 2.30179 1.66705)"

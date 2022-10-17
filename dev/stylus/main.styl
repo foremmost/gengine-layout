@@ -105,6 +105,8 @@ body
     mt( calc(var(--inner-gap) / 2))
 // Login page
 .login
+  .row
+    height: 100%
   &>.section
     posr()
     wh calc( (1308 / 1360) * 100%) calc( 100vh - calc(var(--main-gap) * 2 ) )
@@ -180,7 +182,12 @@ body
   bgc RGB( var(--light-gray))
   border-radius: 10px 10px 0px 0px
   pt 7px
-  height 76px
+  &-lang
+    &.-active
+      .head-lang_text
+        font 13px 'Geometria-Bold'
+        lih(18px)
+        text-decoration: underline
   &-left
     fdc()
     df({
@@ -211,19 +218,30 @@ body
     color RGB( var(--orange))
   &-right
     ml auto
-    mr 18px
+    p(18px)
+    +tablet()
+      mr 18px
+      p(0)
     &-row,&-item
      column-gap calc(var(--inner-gap) * 2)
+     flex-wrap wrap
+     justify-content space-between
+     +tablet()
+      justify-content flex-start
     &-item
+      &:first-child
+        mb(calc(var(--inner-gap) * 2))
+      &:after
+        dn()
+        +tablet()
+          af()
+          wh 1px 18px
+          bgc RGBA( var(--black),.2)
       df({
         df:'.head-right-item'
         ali:'center'
       })
       posr()
-      &:after
-        af()
-        wh 1px 18px
-        bgc RGBA( var(--black),.2)
       &:last-child:after
         dn()
   &-text-item
@@ -236,6 +254,7 @@ body
     df({
       ali:'center'
     })
+    flex-wrap wrap
   &-profile
     posr()
     wh 40px
@@ -272,13 +291,16 @@ body
     br 4px
     box-shadow: 1px 1px 2px rgba(170, 170, 204, .5), -1px -1px 2px #FFF
   &-section
+    height 100%
     bgc RGB( var(--light-gray))
     box-shadow: 0px 0px 4px rgba(0, 0, 0, .12)
     &:first-child
       br(4px 0px 0px 4px)
     &:last-child
       br(0px 4px 4px 0px)
-    p(calc(var(--inner-gap) * 2 ))
+    p(calc(var(--inner-gap)))
+    +tablet()
+      p(calc(var(--inner-gap) * 2 ))
   &-header,&-inner
    p(calc(var(--inner-gap)*2))
   &-header
@@ -416,3 +438,194 @@ body
     &_file
       dn()
 // Category end
+
+// Consultant
+.consultant
+  &-list
+    height: 100%
+    overflow-y: auto
+    &_content
+      df({
+        df:'.consultant-list-content'
+        ali:'center'
+      })
+      w(100%)
+      ovh()
+      column-gap calc(var(--inner-gap))
+    &_item
+      w(97%)
+      posr()
+      p(calc(var(--inner-gap)/2) var(--inner-gap))
+      mb(var(--inner-gap))
+      bdrs(4px)
+      &.-open
+        bgc(RGB(var(--purple)))
+        color #FFF
+      &:hover
+        bgc RGBA( var(--light-pink),.2)
+    &_title
+      font 13px "Geometria-Bold"
+    &_img
+      height 40px
+      flex 0 0 40px
+    &_text
+      ovh()
+      w(70%)
+      white-space nowrap
+      text-overflow ellipsis
+    &_date
+      posa()
+      t(9px)
+      r(calc(var(--inner-gap)/2))
+  &-aside
+    dn()
+    +tablet()
+      db()
+      p(14px)
+  &-body
+    w(100%)
+    p(0)
+    +tablet()
+      display flex
+      flex-wrap wrap
+      p(0)
+    &-header
+      bdb(1px solid RGBA( var(--light-pink),.2))
+      p(var(--inner-gap))
+      +tablet()
+        w(100%)
+      &_user
+        df({
+          df:'.consultant-body-header-user'
+          ali:'center'
+        })
+        column-gap var(--inner-gap)
+      &_title
+        font 13px "Geometria-Bold"
+      &_recent
+        color RGBA( var(--black),.6)
+      &_action
+        ml(auto)
+
+    &-inner
+      df({
+        df:'.consultant-body-inner'
+        ali:'center'
+      })
+      height 80%
+      flex-direction column
+      justify-content flex-end
+      +tablet()
+         w(calc(100% - 340px))
+         border-right 1px solid RGBA(var(--light-pink), .2)
+         height calc(100% - calc(var(--inner-gap)*8))
+    &-action
+      w(340px)
+      dn()
+      +tablet()
+        db()
+  &-messages
+    mw(644px)
+    m(0 auto)
+    p(var(--inner-gap))
+    df({
+      df:'.consultant-messages'
+    })
+    flex-direction column
+    overflow-y auto
+    +tablet()
+      w(100%)
+      mb(var(--inner-gap))
+      mt(var(--inner-gap))
+  &-msg
+    posr()
+    df({
+      df:'.consultant-msg'
+      ali:'flex-start'
+    })
+    column-gap var(--inner-gap)
+    mb(calc(var(--inner-gap)/2))
+    &_body
+      bdrs(8px 20px 20px 20px)
+      bdc(RGBA(255, 255, 255, .1))
+      bd(1px solid RGBA(35, 35, 35, .02))
+      p(12px 16px)
+      display inline-block
+      box-shadow 0px 2px 5px rgba(35, 35, 35, .05)
+    &_right
+      justify-content flex-end
+      .consultant-msg_body
+        bdrs(20px 8px 8px 20px)
+        bgc RGBA( var(--light-pink),.2)
+    &_time
+      mt(auto)
+      color RGBA(var(--black),.6)
+  &-form
+    w(100%)
+    &_body
+      posr()
+      df({
+        df:'.consultant-form-body'
+        ali:'center'
+      })
+      w(80%)
+      bdrs(8px)
+      bd(1px solid RGBA(35, 35, 35, .02))
+      mw(644px)
+      p(12px 16px 12px calc(var(--inner-gap)*4))
+      m(auto)
+      box-shadow 0px 2px 5px RGBA(35, 35, 35, .05)
+      resize none
+      +tablet()
+        w(85%)
+    &_textarea
+      w(94%)
+      ml(var(--inner-gap))
+      bgc(transparent)
+      transform translateY(5px)
+      resize none
+    &_smiles,&_btn,&_send,&_file
+      posa()
+    &_smiles
+      l(calc(var(--inner-gap)*2))
+    &_send
+      r(-25px)
+      +tablet()
+        r(-30px)
+    &_file
+      r(calc(var(--inner-gap)*2))
+  &-profile
+    &_action
+      df({
+        df:'.consultant-profile-action'
+        jus:'flex-end'
+      })
+      p(calc(var(--inner-gap)*2))
+    &_close
+      wh(13px)
+      ml(auto)
+      svg
+        wh(100%)
+    &_body
+      p(calc(var(--inner-gap)*2))
+    &-list
+      &:after
+        af()
+        wh(100%,1px)
+        m(calc(var(--inner-gap)*2) 0)
+        background linear-gradient(90deg, rgba(211, 217, 249, 0.24) 0%, rgba(211, 217, 249, 0.6) 51.04%, rgba(211, 217, 249, 0.24) 100%)
+      &:last-child:after
+        dn()
+    &-item
+      df({
+        df:'.consultant-profile-item'
+        ali:'center'
+        jus:'space-between'
+      })
+      mt(calc(var(--inner-gap)))
+      fz(13px)
+    &-left
+      ff('Geometria-Bold')
+    &-right
+      color RGBA(var(--black),.6)
+// Consultant end
