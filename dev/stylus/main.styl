@@ -54,7 +54,7 @@ body
   &-more
     ml(var(--inner-gap))
     svg
-      wh 40px 15px
+      wh 30px 10px
       stroke RGBA(var(--light-pink),.2)
       fill RGBA(var(--light-pink),.2)
   &-link
@@ -103,6 +103,66 @@ body
     wh(220px,34px)
     p(0 var(--inner-gap))
     mt( calc(var(--inner-gap) / 2))
+.table
+  w 100%
+  border-collap seseparate
+  border-spacing 0 1em
+  thead
+    tr
+      &:before
+        af()
+        posa()
+        wh(100%)
+        bgc(RGB(var(--light-gray)))
+        z-index 0
+        t 0
+        l 0
+        box-shadow 0px 0px 4px rgba(0, 0, 0, 0.12)
+        bdrs 4px
+  tr
+    posr()
+    th,td
+      &:first-child
+        pl(8px)
+    th
+      posr()
+      z-index 1
+      .th
+        p(32px 0)
+  tbody
+    mt 10px
+    td
+      posr()
+      z-index 1
+    tr
+      &:after,&:before
+        posa()
+        af()
+        l 0
+      &:after
+        wh(8px,100%)
+        bgc(#5068E2)
+        bdrs(4px 0px 0px 4px)
+      &:before
+        wh(100%)
+        bgc(RGB(var(--light-gray)))
+        z-index 0
+        box-shadow 0px 0px 4px rgba(0, 0, 0, 0.12)
+        bdrs 4px
+      &.unactive
+        &:after
+          opacity .5
+      .td
+        p(8px 0)
+        tac()
+  &-actions
+    df({
+     df:'.table-actions'
+     ali:center
+     jus:center
+    })
+    column-gap 10px
+
 // Login page
 .login
   .row
@@ -174,14 +234,14 @@ body
 .block-shadow
   box-shadow: 1px 1px 2px rgba(170, 170, 204, 0.5), -1px -1px 2px #FFFFFF
 
-.head,.content
+.head,.content ,.foot
   m var(--inner-gap)
 
 //header
 .head
   bgc RGB( var(--light-gray))
   border-radius: 10px 10px 0px 0px
-  pt 7px
+  p 7px 0 14px
   &-lang
     &.-active
       .head-lang_text
@@ -229,8 +289,8 @@ body
      +tablet()
       justify-content flex-start
     &-item
-      &:first-child
-        mb(calc(var(--inner-gap) * 2))
+      /*&:first-child
+        mb(calc(var(--inner-gap) * 2))*/
       &:after
         dn()
         +tablet()
@@ -273,6 +333,39 @@ body
     br @width
 //header
 
+.foot
+  bgc(RGB(var(--light-gray)))
+  bdrs(0 0 4px 4px)
+  p(9px 0)
+  box-shadow: 1px 1px 2px rgba(170, 170, 204, 0.5), -1px -1px 2px #fff
+  &-row
+    df({
+      ali:center
+    })
+  &-nav
+    ml(30px)
+    w(100%)
+  &-logo
+    pl(20px)
+    pt(7px)
+  &-btn
+    p(11px)
+    wh(42px)
+    .btn-icon-svg
+      wh(20px)
+      stroke #373A4A
+    &.active,&:hover
+      bgc(rgba(211, 217, 249, 0.2))
+      bdrs(10px)
+      box-shadow: inset -1px -1px 1px rgba(255, 255, 255, 0.7), inset 1px 1px 2px rgba(221, 221, 221, 0.2)
+      .btn-icon-svg
+        stroke #5068E2
+  &-out
+    ml(auto)
+    mr(9px)
+    db()
+    .btn-icon-svg
+      stroke RGB(var(--orange))
 .content
   ovh()
   bgc RGB(var(--gray))
@@ -287,7 +380,7 @@ body
     height calc(100% - 40px)
   &-body
     m var(--inner-gap)
-    bgc(#F7F9FF)
+    bgc(RGB(var(--light-gray)))
     br 4px
     box-shadow: 1px 1px 2px rgba(170, 170, 204, .5), -1px -1px 2px #FFF
   &-section
@@ -307,9 +400,10 @@ body
     df({
       ali:'center'
     })
-    pb 0
+    flw()
   &-inner
-    wh 100% calc(100vh - 230px - (2 * var(--inner-gap)))
+    wh 100% calc(100vh - 250px - (2 * var(--inner-gap)))
+    pt 0
     &>.row
       height 100%
   &-title
@@ -336,7 +430,7 @@ body
       w(715 / 1295 * 100%)
     &-four
       w(54px)
-      p(var(--inner-gap))
+      p(var(--inner-gap) !important)
   &-header
     .content-form
       ml(calc(var(--inner-gap) * 4 ))
@@ -629,3 +723,8 @@ body
     &-right
       color RGBA(var(--black),.6)
 // Consultant end
+
+
+//Users
+
+// Users end
