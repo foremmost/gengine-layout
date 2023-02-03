@@ -85,7 +85,9 @@ block content
 												| 2021/08/25 15:56:11
 										td
 											.td
-												input(type="checkbox")
+												.inpt
+													input(type="checkbox" id='id'+i)
+													label.inpt-label(for='id'+i)
 										td
 											.td.table-actions
 												button.btn.btn-action
@@ -121,7 +123,8 @@ block content
 											| 2021/08/25 15:56:11
 									td
 										.td
-											input(type="checkbox")
+											label.inpt(for='idtest')
+												input(type="checkbox" id='idtest')
 									td
 										.td.table-actions
 											button.btn.btn-action
@@ -133,3 +136,122 @@ block content
 											button.btn.btn-action
 												svg.btn-icon-svg
 													use(xlink:href="/img/sprite.svg#TRASH")
+					.content-card
+						form
+							.consultant-profile
+								.row
+									.consultant-profile_body.user-inner_item
+										h3.content-title Пользователь
+										ul.consultant-profile-list
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| Руслан Секербаев
+												span.consultant-profile-right
+													| u-10
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| E-mail
+												span.consultant-profile-right
+													| cekip@mail.ru
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| Телефон
+												span.consultant-profile-right
+													| +7 777 777 77 77
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| Роль
+												span.consultant-profile-right
+													| Администратор
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| Команда
+												span.consultant-profile-right
+													| Менеджеры
+										h3.content-title Информация
+										ul.consultant-profile-list
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| Дата добавления
+												span.consultant-profile-right
+													| 2021/08/25 15:56:11
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| Добавил
+												span.consultant-profile-right
+													|  Андрей Карась
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| Последняя активность
+												span.consultant-profile-right
+													|  2021/08/25 15:56:11
+										.consultant-profile_img
+											h3.content-title Аватар
+											+img('rus.jpg')
+									.consultant-profile_body.user-form.user-inner_item
+										h3.content-title Взаимодействие с карточкой
+										.user-form-inner
+											.inpt
+												label.inpt-title(for='uname') Имя
+												input(type='text' id='uname').inpt-value
+											.inpt
+												label.inpt-title(for='uemail') E-mail
+												input(type='text' id='uemail').inpt-value
+											.inpt
+												label.inpt-title(for='uphone') Телефон
+												input(type='text' id='uphone').inpt-value
+											.select
+												label.select-title(for='urole') Роль
+												select(id='urole')
+													option(value='1') Администратор
+													option(value='2') Администратор
+													option(value='3') Администратор
+													option(value='4') Администратор
+											.select
+												label.select-title(for='uteam') Команда
+												select(id='uteam')
+													option(value='1') Менеджеры
+													option(value='2') Менеджеры
+													option(value='3') Менеджеры
+													option(value='4') Менеджеры
+											.select
+												label.select-title(for='ufunc') Функционирует
+												select(id='ufunc')
+													option(value='1') Да
+													option(value='2') Нет
+											.inpt
+												label.inpt-title(for='upass') Пароль
+												input(type='text' id='upass').inpt-value
+											.inpt
+												label.inpt-title(for='ucpass') Подтвердить пароль
+												input(type='text' id='ucpass').inpt-value
+									.user-history.consultant-profile_body.user-inner_item
+										h3.content-title История
+										.user-history-inner
+											time.user-history_date
+												span 2021/08/25
+											ul.user-history-list
+												-for(let i=0;i<5;i++)
+													li.user-history-list_item
+														span.user-history-item_text
+															| Удаление заказа из раздела "Корзина"
+														time.user-history-item_time 15:56:11
+											time.user-history_date
+												span 2021/08/25
+											ul.user-history-list
+												-for(let i=0;i<10;i++)
+													li.user-history-list_item
+														span.user-history-item_text
+															| Удаление заказа из раздела "Корзина"
+														time.user-history-item_time 15:56:11
+									.user-inner_item.user-actions
+										button.btn.btn-close.user-actions_close
+											svg.btn-icon-svg._close
+												use(xlink:href="/img/sprite.svg#CLOSE")
+										.user-actions_inner
+											button.btn.btn-action
+												svg.btn-icon-svg
+													use(xlink:href="/img/sprite.svg#SAVE")
+											button.btn.btn-action
+												svg.btn-icon-svg
+													use(xlink:href="/img/sprite.svg#BACK")

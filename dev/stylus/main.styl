@@ -67,14 +67,21 @@ body
       ali:'center'
       jus:'center'
     })
+    transition .35s ease
     wh 32px
     box-shadow 1px 1px 2px rgba(170, 170, 204, 0.5), -1px -1px 2px #FFF
     svg,img
       wh 12px
+      transition .35s ease
       stroke RGB(var(--black))
+    &:hover,&:active
+      svg
+        stroke RGB(var(--blue))
   &-char
     ml(auto)
 .inpt,.text
+  &-title
+    lih(28px)
   &-value
     w(100%)
     db()
@@ -86,6 +93,31 @@ body
     lih(28px)
     fz(13px)
     mt( calc(var(--inner-gap) / 2) )
+  &-label
+    posr()
+    db()
+    wh(38px,22px)
+    cursor: pointer
+    &:before,&:after
+      posa()
+      af()
+      transition .35s ease
+    &:before
+      wh(100%)
+      bdrs(40px)
+      bg(RGBA(var(--light-pink,1)))
+    &:after
+      bdrs(100%)
+      wh(18px)
+      bg(#fff)
+      t 2px
+      l 2px
+  input[type='checkbox']
+    display: none
+    &:checked+.inpt-label:before
+      bg(RGBA(var(--blue,1)))
+    &:checked+.inpt-label:after
+      l 19px
 .text
   &-value
     height 122px
@@ -129,6 +161,12 @@ body
       z-index 1
       .th
         p(32px 0)
+    .td
+      .inpt
+        df({
+          "df":'td-inpt'
+          "jus":center
+        })
   tbody
     mt 10px
     td
@@ -402,6 +440,8 @@ body
     })
     flw()
   &-inner
+    posr()
+    ovh()
     wh 100% calc(100vh - 250px - (2 * var(--inner-gap)))
     pt 0
     &>.row
@@ -418,6 +458,20 @@ body
     column-gap calc(var(--inner-gap) * 3)
     ml(auto)
 
+  &-card,&-table
+    wh(97%,calc(100vh - 250px - (2 * var(--inner-gap))))
+    posa()
+    z-index 10
+    t 1px
+  &-card
+    transition 1s ease
+    opacity: .35
+    transform-origin right
+    transform perspective(200px) translateZ(-50px) scale(.15) rotateY(-90deg)
+    &.show
+      opacity: 1
+      transition .45s ease
+      transform perspective(600px) translateZ(0px) scale(1) rotateY(0deg)
 
 // Category
 .category
@@ -722,9 +776,80 @@ body
       ff('Geometria-Bold')
     &-right
       color RGBA(var(--black),.6)
+    &_img
+      img
+        bdrs(10px)
+        ovh()
+        mt(5px)
 // Consultant end
 
 
 //Users
-
+.user
+  &-inner
+    &_item
+      bdrs(4px 0px 0px 4px)
+      bg(RGB(var(--light-gray)))
+      posr()
+      height calc(100vh - 270px - (2 * var(--inner-gap)))
+      overflow-y auto
+      box-shadow 0px 0px 4px rgba(0, 0, 0, .12)
+      &:first-child
+        z-index: 4
+      &:nth-child(2)
+        z-index: 3
+      &:nth-child(3)
+        z-index: 2
+  &-form
+    w(340px)
+    &-inner
+      mt(10px)
+      .inpt
+        mb(10px)
+    .select
+      mb(10px)
+      select
+        w(100%)
+        tac()
+  &-history
+    w(607px)
+    &_date
+      bg(RGBA(var(--light-pink),.2))
+      bdrs(40px)
+      p(3px 7px)
+      mt(20px)
+      fz(13px)
+      display: inline-block
+      color RGBA(var(--black),.6)
+    &-list
+      &_item
+        df({
+          df: 'user-history-list',
+          alic: center
+          jus: space-between
+        })
+        fz(12px)
+        mt(10px)
+        bdrs(10px)
+        w(100%)
+        p(12px 10px 11px)
+        bd(1px solid RGBA(var(--light-pink), .2))
+        color RGBA(var(--black),.6)
+  &-actions
+    w(55px)
+    tac()
+    &_close
+      w(100%)
+      bdb(1px solid RGBA(var(--light-pink),.2))
+      p(20px 0)
+      svg
+        wh(17px)
+    &_inner
+      df({
+        df: 'user-actions_inner',
+        ali: center
+      })
+      mt(20px)
+      gap 10px
+      flex-direction column
 // Users end
