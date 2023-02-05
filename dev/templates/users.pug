@@ -86,7 +86,7 @@ block content
 										td
 											.td
 												.inpt
-													input(type="checkbox" id='id'+i)
+													input(type="checkbox" id='id'+i checked)
 													label.inpt-label(for='id'+i)
 										td
 											.td.table-actions
@@ -123,8 +123,9 @@ block content
 											| 2021/08/25 15:56:11
 									td
 										.td
-											label.inpt(for='idtest')
-												input(type="checkbox" id='idtest')
+											.inpt
+												input(type="checkbox" id='sid')
+												label.inpt-label(for='sid')
 									td
 										.td.table-actions
 											button.btn.btn-action
@@ -229,7 +230,7 @@ block content
 										h3.content-title История
 										.user-history-inner
 											time.user-history_date
-												span 2021/08/25
+												| 2021/08/25
 											ul.user-history-list
 												-for(let i=0;i<5;i++)
 													li.user-history-list_item
@@ -237,7 +238,7 @@ block content
 															| Удаление заказа из раздела "Корзина"
 														time.user-history-item_time 15:56:11
 											time.user-history_date
-												span 2021/08/25
+												| 2021/08/25
 											ul.user-history-list
 												-for(let i=0;i<10;i++)
 													li.user-history-list_item

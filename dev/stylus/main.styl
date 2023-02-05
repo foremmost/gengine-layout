@@ -457,7 +457,6 @@ body
     })
     column-gap calc(var(--inner-gap) * 3)
     ml(auto)
-
   &-card,&-table
     wh(97%,calc(100vh - 250px - (2 * var(--inner-gap))))
     posa()
@@ -819,8 +818,10 @@ body
       p(3px 7px)
       mt(20px)
       fz(13px)
-      display: inline-block
+      ml(50%)
+      display inline-block
       color RGBA(var(--black),.6)
+      transform translateX(-50%)
     &-list
       &_item
         df({
