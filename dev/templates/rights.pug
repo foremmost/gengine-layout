@@ -1,0 +1,40 @@
+extends template/inner
+append vars
+	-
+		page_title = 'Workspace'
+block content
+	main.content
+		section.category
+			.section.content-body
+				.content-header.row.category-header
+					h2.title
+						| Пользователи
+					.content-form
+						.row
+							.binpt
+								label.binpt-title(for='search')
+								input(type='text' id='search' placeholder='Поиск категории').binpt-value.binpt-search
+							button.btn.btn-more
+								svg.btn-icon-svg._dot
+									use(xlink:href="/img/sprite.svg#T-DOT1")
+					.content-action
+						button.btn-link.btn-add
+							span.btn-text Добавить пользователя
+						button.btn-link.btn-choose
+							span.btn-text Выбрать
+						button.btn-link.btn-settings
+							span.btn-text Настройки
+						button.btn-link.btn-trash
+							span.btn-text Корзина
+							span#btn-trash (2)
+				.content-inner
+					.accordion
+						.accordion-item
+							.accordion-item-header
+								| Системные
+							.accordion-item-body
+								-for (let i = 0; i < 10; i++)
+									.accordion-item-option.inpt
+										input(type="checkbox" id='ac-1')
+										label(for='ac-1' class='inpt-label')
+											span.accordion-item-option_text Настройки
