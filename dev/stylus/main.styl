@@ -3,8 +3,8 @@
 @import vars
 @import groups
 
-font_inc('Geometria-Regular', 'Geometria-Regular.woff2')
-font_inc('Geometria-Bold', 'Geometria-Bold.woff2')
+font_inc('GoogleSansRegular', 'GoogleSans-Regular.woff2')
+font_inc('GoogleSansBold', 'GoogleSans-Bold.woff2')
 
 
 .row
@@ -15,7 +15,7 @@ font_inc('Geometria-Bold', 'Geometria-Bold.woff2')
 
 
 body
-  font 14px "Geometria-Regular"
+  font 14px "GoogleSansRegular"
   color RGB( var(--black) )
   background-color RGB( var(--gray) )
 
@@ -32,7 +32,7 @@ body
   br(12px)
   height 50px
 .title
-  font 20px "Geometria-Bold"
+  font 20px "GoogleSansBold"
   posr()
   lih(28px)
   color RGB( var(--black) )
@@ -232,7 +232,7 @@ body
   &-inpt
     &-title
       db()
-      font 13px 'Geometria-Bold'
+      font 13px 'GoogleSansBold'
       lih(28px)
     &-value
       wh 100% 42px
@@ -253,7 +253,7 @@ body
     r var(--main-gap)
   &-lang
     &.-active
-      ff('Geometria-Bold')
+      ff('GoogleSansBold')
       lih(18px)
       ttu()
       text-decoration: underline
@@ -329,7 +329,7 @@ body
   &-lang
     &.-active
       .head-lang_text
-        font 13px 'Geometria-Bold'
+        font 13px 'GoogleSansBold'
         lih(18px)
         text-decoration: underline
   &-left
@@ -353,11 +353,11 @@ body
       r 0px
   &-name
     pl 18px
-    font 30px 'Geometria-Bold'
+    font 30px 'GoogleSansBold'
     lih 28px
   &-role
     lih(32px)
-    font 16px 'Geometria-Bold'
+    font 16px 'GoogleSansBold'
     pl 18px
     color RGB( var(--orange))
   &-right
@@ -493,7 +493,7 @@ body
     &>.row
       height 100%
   &-title
-    font 12px 'Geometria-Bold'
+    font 12px 'GoogleSansBold'
     ttu()
     color RGB( var(--black),.4)
   &-action
@@ -623,7 +623,7 @@ body
     &_title
       bdrs(6px)
       tac()
-      font 12px 'Geometria-Bold'
+      font 12px 'GoogleSansBold'
       color RGB( var(--blue))
       bgc(RGBA(var(--light-pink),.2))
       p(var(--inner-gap) 0)
@@ -657,7 +657,7 @@ body
       &:hover
         bgc RGBA( var(--light-pink),.2)
     &_title
-      font 13px "Geometria-Bold"
+      font 13px "GoogleSansBold"
     &_img
       height 40px
       flex 0 0 40px
@@ -694,7 +694,7 @@ body
         })
         column-gap var(--inner-gap)
       &_title
-        font 13px "Geometria-Bold"
+        font 13px "GoogleSansBold"
       &_recent
         color RGBA( var(--black),.6)
       &_action
@@ -818,7 +818,7 @@ body
       mt(calc(var(--inner-gap)))
       fz(13px)
     &-left
-      ff('Geometria-Bold')
+      ff('GoogleSansBold')
     &-right
       color RGBA(var(--black),.6)
     &_img
@@ -845,8 +845,10 @@ body
         z-index: 3
       &:nth-child(3)
         z-index: 2
+  &-info
+    w(calc( (340 / 1170) * 100% ) )
   &-form
-    w(340px)
+    w(calc( (340 / 1170) * 100% ) )
     &-inner
       mt(10px)
       .inpt
@@ -857,7 +859,7 @@ body
         w(100%)
         tac()
   &-history
-    w(607px)
+    w(calc( (607 / 1170) * 100% ) )
     &_date
       bg(RGBA(var(--light-pink),.2))
       bdrs(40px)
@@ -906,7 +908,7 @@ body
     &-header
       posr()
       p(14px 28px)
-      font: 14px "Geometria-Bold"
+      font: 14px "GoogleSansBold"
       mb(var(--inner-gap))
       lih(32px)
       cursor pointer
@@ -925,7 +927,11 @@ body
         wh(10px,5px)
         r 20px
         t 28px
-        background red
+        transform rotate(90deg)
+        background url("../img/accordion.png")
+        transition all .15s ease
+      &.open:after
+        transform rotate(0deg)
     &-body
       pr(var(--inner-gap))
       height 100%
@@ -938,9 +944,24 @@ body
       box-shadow 1px 1px 2px rgba(170, 170, 204, 0.5), -1px -1px 2px #FFFFFF
       border-radius 4px
       &_text
-        transform translate(47px, 3px)
         display block
-      .inpt-label
+        transform translateY(2px)
+      &_label
         wh(100%,22px)
+        cursor pointer
+        display flex
+        align-items center
+        column-gap 10px
         &:before
-          wh(38px,22px)
+          wh(20px)
+          af()
+          transition all 0.15s ease
+          border-radius 4px
+          border 1px solid #d1d1d6
+      input
+        dn()
+      input:checked+.accordion-item-option_label:before
+        background #d1d1d6 url("../img/check.png") center no-repeat
+      input:checked+.accordion-item-option_label:hover:before
+        background-color #5068e2
+        border-color #5068e2
