@@ -1,8 +1,8 @@
 
 const
   { src, dest, watch, parallel, series } = require('gulp'),
-	imagemin = require('gulp-imagemin'),
-	del = require('del');
+	imagemin = require('gulp-imagemin');
+	//del = require('del');
  
 // Gulp File 2.0
 const
