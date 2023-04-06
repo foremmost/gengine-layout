@@ -27,7 +27,7 @@ block content
 						button.btn-link.btn-trash
 							span.btn-text Корзина
 							span#btn-trash (2)
-				.content-inner
+				.content-inner.with-pagination
 					.content-table
 						table.table
 							thead
@@ -137,6 +137,27 @@ block content
 											button.btn.btn-action
 												svg.btn-icon-svg
 													use(xlink:href="/img/sprite.svg#TRASH")
+
+				.content-pagination
+					.pagination-row
+						.pagination-left
+							span 1-30 пользователей из
+							strong 120
+						.pagination-center
+							.pagination-current
+								span Страница
+							.pagination-page
+								.pagination-inpt
+									input(type='number' value='1')
+							span из
+							strong 3
+						.pagination-right
+							span Показывать
+							.select.pagination-select
+								select
+									option(value="10") 10
+									option(value="20") 20
+									option(value="30") 30
 					.content-card
 						form
 							.consultant-profile

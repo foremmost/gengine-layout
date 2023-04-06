@@ -3,8 +3,8 @@
 @import vars
 @import groups
 
-font_inc('Geometria-Regular', 'Geometria-Regular.woff2')
-font_inc('Geometria-Bold', 'Geometria-Bold.woff2')
+font_inc('GoogleSans-Regular', 'GoogleSans-Regular.woff2')
+font_inc('GoogleSans-Bold', 'GoogleSans-Bold.woff2')
 
 
 .row
@@ -15,7 +15,7 @@ font_inc('Geometria-Bold', 'Geometria-Bold.woff2')
 
 
 body
-  font 14px "Geometria-Regular"
+  font 14px "GoogleSans-Regular"
   color RGB( var(--black) )
   background-color RGB( var(--gray) )
 
@@ -32,7 +32,7 @@ body
   br(12px)
   height 50px
 .title
-  font 20px "Geometria-Bold"
+  font 20px "GoogleSans-Bold"
   posr()
   lih(28px)
   color RGB( var(--black) )
@@ -77,8 +77,24 @@ body
     &:hover,&:active
       svg
         stroke RGB(var(--blue))
+    &.active
+      background rgba(211, 217, 249, 0.2)
+      box-shadow inset -1px -1px 1px rgba(255, 255, 255, 0.7), inset 1px 1px 2px rgba(221, 221, 221, 0.2)
+      border-radius 6px
   &-char
     ml(auto)
+  &-blue
+    bdrs(6px)
+    ff('GoogleSans-Bold')
+    lih(18px)
+    p(var(--inner-gap) calc(var(--inner-gap)*2))
+    transition .35s ease
+    background-color RGB(var(--blue))
+    color #fff
+    box-shadow 1px 1px 2px rgba(170, 170, 204, 0.5), -1px -1px 2px #FFF
+    &.another
+      background rgba(211, 217, 249, 0.2)
+      color RGBA(var(--black),.6)
 .inpt,.text
   &-title
     lih(28px)
@@ -232,7 +248,7 @@ body
   &-inpt
     &-title
       db()
-      font 13px 'Geometria-Bold'
+      font 13px 'GoogleSans-Bold'
       lih(28px)
     &-value
       wh 100% 42px
@@ -253,7 +269,7 @@ body
     r var(--main-gap)
   &-lang
     &.-active
-      ff('Geometria-Bold')
+      ff('GoogleSans-Bold')
       lih(18px)
       ttu()
       text-decoration: underline
@@ -329,7 +345,7 @@ body
   &-lang
     &.-active
       .head-lang_text
-        font 13px 'Geometria-Bold'
+        font 13px 'GoogleSans-Bold'
         lih(18px)
         text-decoration: underline
   &-left
@@ -353,11 +369,11 @@ body
       r 0px
   &-name
     pl 18px
-    font 30px 'Geometria-Bold'
+    font 30px 'GoogleSans-Bold'
     lih 28px
   &-role
     lih(32px)
-    font 16px 'Geometria-Bold'
+    font 16px 'GoogleSans-Bold'
     pl 18px
     color RGB( var(--orange))
   &-right
@@ -452,6 +468,7 @@ body
       stroke RGB(var(--orange))
 .content
   ovh()
+  posr()
   bgc RGB(var(--gray))
   p var(--innner-gap)
   box-shadow 1px 1px 2px rgba(170, 170, 204, 0.5), -1px -1px 2px #FFF
@@ -492,8 +509,15 @@ body
     pt 0
     &>.row
       height 100%
+    &.with-pagination
+      wh 100% calc(100vh - 350px - (2 * var(--inner-gap)))
+  &-pagination
+    bgc(RGB(var(--light-gray)))
+    height 42px
+    transform translateY(55px)
+    p(5px var(--inner-gap))
   &-title
-    font 12px 'Geometria-Bold'
+    font 12px 'GoogleSans-Bold'
     ttu()
     color RGB( var(--black),.4)
   &-action
@@ -518,6 +542,127 @@ body
       transition .45s ease
       transform perspective(600px) translateZ(0px) scale(1) rotateY(0deg)
 
+  &-actions
+    flex 0 0 54px
+    box-shadow 1px 1px 2px rgba(170, 170, 204, 0.5), -1px -1px 2px #FFF
+  &-popup
+    posa()
+    wh(100%)
+    t(0)
+    l(0)
+    df({
+      df: '.content-popup'
+      jus: center
+      ali: center
+    })
+    transition .45s ease
+    opacity 0
+    background rgba(211, 217, 249, 0.6)
+    backdrop-filter blur(5px)
+    &.show
+      opacity 1
+    &-header
+      df({
+        df: '.content-popup-close'
+        ali: center
+        jus: space-between
+      })
+    &-inner
+      p(calc(var(--inner-gap)*2.4) calc(var(--inner-gap)*2.9))
+      w(620px)
+      bdrs(4px)
+      background #fff
+    &-body
+      m(var(--inner-gap) 0 calc(var(--inner-gap)*2))
+      &.empty
+        .content-popup-body-text
+          tac()
+          p(174px 0)
+          strong
+            color RGBA(var(--blue))
+      &-items
+        mt(calc(var(--inner-gap)*3))
+      &-item
+        df({
+          df: '.content-popup-body-item'
+          ali: center
+        })
+        w(100%)
+        bdrs(4px)
+        mb(calc(var(--inner-gap)/2))
+        border 1px solid rgba(211, 217, 249, 0.2)
+        box-shadow 1px 1px 2px rgba(0, 0, 0, 0.18)
+        &_move
+          p(calc(var(--inner-gap)*2))
+          svg
+            wh(10px,20px)
+        &_image
+          wh(46px,54px)
+          df({
+            df: '.content-popup-body-item_image'
+            ali: center
+            jus: center
+          })
+          ovh()
+          bdrs(3px)
+        &_info
+          ml(calc(var(--inner-gap)*2))
+        &_infodata
+          color RGBA(var(--black),.6)
+        &_actions
+          df({
+            df: '.content-popup-body-item_actions'
+            ali: center
+          })
+          ml(auto)
+          mr(calc(var(--inner-gap)*2))
+          column-gap var(--inner-gap)
+    &-footer
+      df({
+        df: '.content-popup-footer'
+        ali: center
+        jus: space-between
+      })
+      &_actions
+        df({
+          df: '.content-popup-footer_actions'
+          ali: center
+        })
+        column-gap var(--inner-gap)
+.pagination
+  &-row
+    df({
+        df: '.pagination-row'
+        ali: 'center'
+        jus:'space-between'
+      })
+    fz 13px
+  &-right
+    df({
+      df: '.pagination-right'
+      ali: 'center'
+    })
+    column-gap var(--inner-gap)
+  &-select
+    select
+      wh(80px,32px)
+      mt(0)
+      cursor pointer
+  &-center
+    df({
+      df: '.pagination-center'
+      ali: 'center'
+    })
+    m(0 auto)
+    column-gap var(--inner-gap)
+  &-inpt
+    input
+      wh(56px,32px)
+      bdrs(4px)
+      p(0 11px)
+      color RGB(var(--purple))
+      border 1px solid #DFE3E8
+      box-shadow inset 0px 0px 3px rgba(0, 0, 0, 0.6)
 // Category
 .category
   &-section
@@ -623,7 +768,7 @@ body
     &_title
       bdrs(6px)
       tac()
-      font 12px 'Geometria-Bold'
+      font 12px 'GoogleSans-Bold'
       color RGB( var(--blue))
       bgc(RGBA(var(--light-pink),.2))
       p(var(--inner-gap) 0)
@@ -657,7 +802,7 @@ body
       &:hover
         bgc RGBA( var(--light-pink),.2)
     &_title
-      font 13px "Geometria-Bold"
+      font 13px "GoogleSans-Bold"
     &_img
       height 40px
       flex 0 0 40px
@@ -694,7 +839,7 @@ body
         })
         column-gap var(--inner-gap)
       &_title
-        font 13px "Geometria-Bold"
+        font 13px "GoogleSans-Bold"
       &_recent
         color RGBA( var(--black),.6)
       &_action
@@ -818,7 +963,7 @@ body
       mt(calc(var(--inner-gap)))
       fz(13px)
     &-left
-      ff('Geometria-Bold')
+      ff('GoogleSans-Bold')
     &-right
       color RGBA(var(--black),.6)
     &_img
@@ -906,7 +1051,7 @@ body
     &-header
       posr()
       p(14px 28px)
-      font: 14px "Geometria-Bold"
+      font: 14px "GoogleSans-Bold"
       mb(var(--inner-gap))
       lih(32px)
       cursor pointer
@@ -925,10 +1070,14 @@ body
         wh(10px,5px)
         r 20px
         t 28px
-        background red
+        transform rotate(90deg)
+        background url("../img/accordion.png")
+        transition all .15s ease
+      &.open:after
+        transform rotate(0deg)
     &-body
       pr(var(--inner-gap))
-      height 100%
+      max-height 500px
       overflow-y auto
       overflow-x hidden
     &-option
@@ -937,10 +1086,123 @@ body
       background #FCFCFC
       box-shadow 1px 1px 2px rgba(170, 170, 204, 0.5), -1px -1px 2px #FFFFFF
       border-radius 4px
+      input
+        dn()
       &_text
-        transform translate(47px, 3px)
+        transform translate(35px, -18px)
         display block
-      .inpt-label
+      input
+        &:checked+.accordion-item-option_label:before
+          background #D1D1D6 url('../img/check.png') center no-repeat
+        &:checked+.accordion-item-option_label:hover:before
+          background-color #5068E2
+          border-color #5068E2
+      &_label
         wh(100%,22px)
+        cursor pointer
         &:before
-          wh(38px,22px)
+          wh(20px)
+          af()
+          transition all .15s ease
+          border-radius 4px
+          border 1px solid #D1D1D6
+
+
+//
+.files
+  &-body
+    fz(12px)
+    box-shadow 0px 0px 4px rgba(0, 0, 0, 0.12)
+    &-inner
+      p(calc(var(--inner-gap)*2))
+      overflow-y auto
+      flex 0 0 calc((1207 / 1263)*100%)
+      box-shadow 0px 0px 4px rgba(0, 0, 0, 0.12)
+      &.show
+        flex 0 0 calc((950 / 1263)*100%)
+  &-title
+    ttu()
+    font-family "GoogleSans-Bold"
+    color RGBA(var(--black),.4)
+  &-breads
+    df({
+      df: '.files-breads'
+      ali: center
+    })
+    mb(calc(var(--inner-gap)*2))
+    &.close
+      mb(0)
+      ovh()
+      height 0
+  &-bread
+    df({
+      df: '.files-bread'
+      ali: center
+    })
+    ff('GoogleSans-Bold')
+    cursor pointer
+    color RGBA(var(--black),.4)
+    &:after
+      af()
+      wh(4px,7px)
+      m(0 calc(var(--inner-gap) * 2))
+      background rgba(79, 77, 142, 0.6)
+    &.current
+      color: RGB(var(--black))
+      cursor initial
+      &:after
+        dn()
+  &-list
+    mt(calc(var(--inner-gap)*2))
+    mb(calc(var(--inner-gap)*2))
+    df({
+      df: '.files-list',
+      ali: center
+    })
+    column-gap calc(var(--inner-gap)*2)
+    flex-wrap wrap
+  &-item
+    p(calc(var(--inner-gap) * 1.4) calc(var(--inner-gap)*2))
+    df({
+      df: '.files-item',
+      ali: center
+    })
+    fz(14px)
+    w( calc(20% - (var(--inner-gap)*2)) )
+    mb(calc(var(--inner-gap)*2))
+    bdrs(4px)
+    column-gap var(--inner-gap)
+    box-shadow 0px 0px 4px rgba(0, 0, 0, 0.12)
+    border 1px solid transparent
+    &.dir
+      font-family "GoogleSans-Bold"
+    &.selected
+      background linear-gradient(0deg, rgba(211, 217, 249, 0.2), rgba(211, 217, 249, 0.2)), #FFFFFF
+      border-color RGB(var(--blue))
+  &-info
+    p(calc(var(--inner-gap)*2))
+    &-list
+      mt(calc(var(--inner-gap) * 2))
+    &-actions
+      mt(calc(var(--inner-gap) * 2))
+      column-gap calc(var(--inner-gap))
+  &-properties
+    dn()
+    flex 0 0 258px
+    &.show
+      display block
+  &-actions
+    flex 0 0 calc(( 57 / 1263 )*100%)
+    &.show
+      flex 0 0 calc(( 311 / 1263 )*100%)
+  &-btns
+    p(calc(var(--inner-gap) * 1.2) calc(var(--inner-gap)))
+    df({
+      df: '.files-btns',
+      ali: center
+    })
+    row-gap calc(var(--inner-gap))
+    flex-direction column
+    height calc(100vh - 270px - (2 * var(--inner-gap)))
+    flex 0 0 57px
+    //box-shadow 0px 0px 4px rgba(0, 0, 0, 0.12)

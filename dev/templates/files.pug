@@ -1,0 +1,139 @@
+extends template/inner
+append vars
+	-
+		page_title = 'Файловый менеджер'
+block content
+	main.content
+		section.consultant
+			.section.content-body
+				.content-header.row.category-header
+					h2.title
+						| Файловый менеджер
+					.content-action
+						button.btn-link.btn-add
+							span.btn-text Добавить файл
+						button.btn-link.btn-trash
+							span.btn-text Корзина
+							span#btn-trash (2)
+				.content-inner
+					.content-body.files-body.row
+						.files-body-inner
+							ul.files-breads.close
+								li.files-bread
+									button Новые товары
+								li.files-bread
+									button Фото для магазина
+								li.files-bread.current
+									span Без названия
+							h5.files-title
+								span Папки
+							.files-list
+								-for(let i=0; i < 20;i++)
+									.files-item.dir
+										img(src='/img/dir.svg')
+										strong Без названия
+							h5.files-title
+								span Файлы
+							.files-list
+								-for (let i = 0; i < 12; i++)
+									.files-item.file
+										img(src='/img/dir.svg')
+										strong Без названия
+						.content-actions.files-actions
+							.row
+								.files-properties
+									.files-info
+										h5.files-title
+											span Свойства
+										ul.consultant-profile-list.files-info-list
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| Название
+												span.consultant-profile-right
+													| Чайный набор
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| Тип
+												span.consultant-profile-right
+													| JPG
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| Размер
+												span.consultant-profile-right
+													| 2 MB
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| Создано
+												span.consultant-profile-right
+													| 23 мар. 2019 г.
+											li.consultant-profile-item
+												strong.consultant-profile-left
+													| Добавил
+												span.consultant-profile-right
+													| Руслан Бандера
+									.files-info
+										h5.files-title
+											span Действия
+										.files-info-actions.row
+											button.btn.btn-action
+												svg.btn-icon-svg
+													use(xlink:href="/img/sprite.svg#COPY")
+											button.btn.btn-action
+												svg.btn-icon-svg
+													use(xlink:href="/img/sprite.svg#TRASH")
+								.files-btns
+									button.btn.btn-action
+										svg.btn-icon-svg
+											use(xlink:href="/img/sprite.svg#PLUS")
+									button.btn.btn-action
+										svg.btn-icon-svg
+											use(xlink:href="/img/sprite.svg#BACK")
+		.content-popup.show
+			.content-popup-inner
+				.content-popup-header
+					h2.title
+						| Добавление файлов
+					button.btn.btn-action.content-popup-close
+						svg.btn-icon-svg
+							use(xlink:href="/img/sprite.svg#CLOSE")
+
+				//.content-popup-body.empty
+				//	.content-popup-body-text
+				//		| Нажмите кнопку "#[strong Добавить]", чтобы добавление файлов.
+				.content-popup-body
+					ul.content-popup-body-items
+						-for(let i = 0; i < 4;i++)
+							li.content-popup-body-item
+								.content-popup-body-item_move
+									svg.btn-icon-svg
+										use(xlink:href="/img/sprite.svg#T-DOT2")
+								.content-popup-body-item_image
+									img(src='/img/promo.png')
+								.content-popup-body-item_info
+									h4.content-popup-body-item_infotitle
+										| Razer Basilisk Ultimate & Mouse Dock.jpg
+									.content-popup-body-item_infodata
+										| 2MB
+								.content-popup-body-item_actions
+									button.btn.btn-action
+										svg.btn-icon-svg
+											use(xlink:href="/img/sprite.svg#EDIT-B")
+									button.btn.btn-action
+										svg.btn-icon-svg
+											use(xlink:href="/img/sprite.svg#REPLACE")
+									button.btn.btn-action
+										svg.btn-icon-svg
+											use(xlink:href="/img/sprite.svg#TRASH")
+
+				.content-popup-footer
+					.content-popup-footer_actions(style="display:none")
+						button.btn-blue
+							| Загрузить
+					.content-popup-footer_actions
+						button.btn-blue
+							| Добавить
+						button.btn-blue.another
+							| Отмена
+					.content-popup-footer_actions
+						button.btn-link
+							| Удалить все
